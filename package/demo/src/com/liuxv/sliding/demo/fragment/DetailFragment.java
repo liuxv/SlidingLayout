@@ -7,9 +7,10 @@ import android.widget.RelativeLayout;
 
 import com.liuxv.sliding.demo.R;
 import com.liuxv.sliding.demo.activity.DetailActivity;
+import com.liuxv.sliding.demo.activity.HorizontalDetailActivity;
 
 /**
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class DetailFragment extends BaseFragment {
 
@@ -65,6 +66,10 @@ public class DetailFragment extends BaseFragment {
     mButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        if (Math.random() < 0.3) {
+          HorizontalDetailActivity.launch(v.getContext());
+          return;
+        }
         DetailActivity.launch(v.getContext(), mCurrentColorIndex);
       }
     });

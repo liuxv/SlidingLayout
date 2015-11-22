@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.View;
 
 /**
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class ActivityUtils {
 

@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 
 import com.liuxv.sliding.demo.fragment.DetailFragment;
 
+/**
+ * @author liuxu87@gmail.com (Liu Xu)
+ */
 public class MainActivity extends BaseActivity {
 
   @Override

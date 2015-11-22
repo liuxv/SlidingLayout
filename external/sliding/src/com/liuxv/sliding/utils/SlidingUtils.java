@@ -7,7 +7,7 @@ import android.view.ViewParent;
 import com.liuxv.sliding.SlidingLayout;
 
 /**
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class SlidingUtils {
 

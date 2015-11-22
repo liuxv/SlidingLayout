@@ -13,7 +13,7 @@ import com.liuxv.sliding.demo.R;
 import com.liuxv.sliding.demo.fragment.BaseFragment;
 
 /**
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class BaseActivity extends AppCompatActivity implements SlideActivity {
 

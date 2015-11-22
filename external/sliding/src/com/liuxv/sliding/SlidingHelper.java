@@ -15,7 +15,7 @@ import java.util.Stack;
 /**
  * Sliding 空间的入口类，管理 activity 调用桟，对应生命周期中的动画，和维护 SlidingLayout 的属性
  * 
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class SlidingHelper {
 

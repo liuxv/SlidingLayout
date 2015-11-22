@@ -4,7 +4,7 @@ package com.liuxv.sliding.component;
 /**
  * 可滑动的 activity 需要集成的接口
  * 
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public interface SlideActivity {
 

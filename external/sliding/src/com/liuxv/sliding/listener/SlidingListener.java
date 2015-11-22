@@ -5,7 +5,7 @@ import android.view.View;
 /**
  * Listener for monitoring events about sliding panes.
  *
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public interface SlidingListener {
   /**

@@ -9,7 +9,7 @@ import com.liuxv.sliding.SlidingLayout;
 import com.liuxv.sliding.utils.SlidingUtils;
 
 /**
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class SlidingHorizontalScrollView extends HorizontalScrollView
     implements SlidingLayout.RightFlingInterceptor {
@@ -26,11 +26,6 @@ public class SlidingHorizontalScrollView extends HorizontalScrollView
 
   public SlidingHorizontalScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-  }
-
-  public SlidingHorizontalScrollView(Context context, AttributeSet attrs, int defStyleAttr,
-      int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
   }
 
   @Override

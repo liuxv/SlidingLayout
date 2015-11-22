@@ -3,7 +3,7 @@ package com.liuxv.sliding;
 import com.liuxv.sliding.component.SlideActivity;
 
 /**
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class SlidingPager {
 

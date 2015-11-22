@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import java.lang.reflect.Field;
 
 /**
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public abstract class BaseFragment extends Fragment {
 

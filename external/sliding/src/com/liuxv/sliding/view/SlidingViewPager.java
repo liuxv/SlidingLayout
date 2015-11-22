@@ -9,7 +9,7 @@ import com.liuxv.sliding.SlidingLayout;
 import com.liuxv.sliding.utils.SlidingUtils;
 
 /**
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class SlidingViewPager extends ViewPager
     implements SlidingLayout.RightFlingInterceptor {

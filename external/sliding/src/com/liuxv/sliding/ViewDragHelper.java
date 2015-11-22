@@ -21,7 +21,7 @@ import java.util.Arrays;
  * 
  * 修改 SETTLE_DURATION 为固定值，并且为保持稳定，避免升级，从 v4 包内拷出
  * 
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class ViewDragHelper {
   private static final String TAG = "ViewDragHelper";

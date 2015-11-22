@@ -47,7 +47,7 @@ import java.util.List;
  * 2. 增加 slientSmoothSlideTo
  * 3. 增加 setXOffset
  *
- * @author liuxu34@wanda.cn (Liu Xu)
+ * @author liuxu87@gmail.com (Liu Xu)
  */
 public class SlidingLayout extends ViewGroup {
 

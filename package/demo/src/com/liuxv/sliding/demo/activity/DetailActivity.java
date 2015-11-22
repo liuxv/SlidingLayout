@@ -8,6 +8,9 @@ import android.support.v4.app.Fragment;
 
 import com.liuxv.sliding.demo.fragment.DetailFragment;
 
+/**
+ * @author liuxu87@gmail.com (Liu Xu)
+ */
 public class DetailActivity extends BaseActivity {
 
   public static String LAST_COLOR_INDEX = "last_color_index";

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.liuxv.sliding.view.SlidingHorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:textSize="45sp"
+            android:text="1"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:textSize="45sp"
+            android:text="2"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/green"
+            android:gravity="center"
+            android:textSize="45sp"
+            android:text="3"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:textSize="45sp"
+            android:text="4"/>
+
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:textSize="45sp"
+            android:text="5"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/green"
+            android:gravity="center"
+            android:textSize="45sp"
+            android:text="6"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:textSize="45sp"
+            android:text="7"/>
+
+    </LinearLayout>
+
+
+</com.liuxv.sliding.view.SlidingHorizontalScrollView>

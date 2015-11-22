@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="Demo.Animation.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_slide_in_from_right</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_slide_out_to_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_slide_out_to_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_slide_in_from_left</item>
+    </style>
+    <style name="Demo.Animation.Activity.SlidingBack" parent="@style/Demo.Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_slide_in_from_right</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_slide_out_to_right</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+    </style>
+
+</resources>

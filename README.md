@@ -36,9 +36,6 @@
   protected void onNewIntent(Intent intent) {
     super.onNewIntent(intent);
     SlidingHelper.onNewIntent(this);
-    if (mFragment != null) {
-      mFragment.onNewIntent(intent);
-    }
   }
 
   @Override

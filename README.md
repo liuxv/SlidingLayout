@@ -48,4 +48,5 @@
   public void finish() {
     super.finish();
     SlidingHelper.finish(this);
+  }
 ```

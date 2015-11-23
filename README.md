@@ -16,3 +16,39 @@
 ![](https://raw.githubusercontent.com/liuxv/SlidingLayout/master/package/demo/horizontal.gif)
 
 
+* 接口简单，只需要在 BaseActivity 加入这样的几行代码就可以了。
+
+```java
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(getLayoutId());
+    SlidingHelper.onCreate(this);
+  }
+
+  @Override
+  public void onWindowFocusChanged(boolean hasFocus) {
+    super.onWindowFocusChanged(hasFocus);
+    SlidingHelper.onWindowFocusChanged(this, hasFocus);
+  }
+
+  @Override
+  protected void onNewIntent(Intent intent) {
+    super.onNewIntent(intent);
+    SlidingHelper.onNewIntent(this);
+    if (mFragment != null) {
+      mFragment.onNewIntent(intent);
+    }
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    SlidingHelper.onDestroy(this);
+  }
+
+  @Override
+  public void finish() {
+    super.finish();
+    SlidingHelper.finish(this);
+```

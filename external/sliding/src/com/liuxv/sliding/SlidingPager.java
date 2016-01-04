@@ -9,13 +9,17 @@ public class SlidingPager {
 
   private SlideActivity mSlideActivity;
   private SlidingLayout mSlidingLayout;
-  private boolean mNeedEnterAnim;
+
+  /**
+   * 由于实现机制的问题，进入动画是在 post-delay 内做的，如果在 delay 的时间段内 finish，则会造成时序问题。所以引入 transaction 维护
+   */
+  private final PageTransaction mPageTransaction;
 
 
   public SlidingPager(SlideActivity baseActivity, SlidingLayout slidingLayout) {
     mSlideActivity = baseActivity;
     mSlidingLayout = slidingLayout;
-    mNeedEnterAnim = false;
+    mPageTransaction = new PageTransaction();
   }
 
   public SlideActivity getSlideActivity() {
@@ -26,17 +30,8 @@ public class SlidingPager {
     return mSlidingLayout;
   }
 
-  public boolean isNeedEnterAnim() {
-    return mNeedEnterAnim;
-  }
-
-  public void setNeedEnterAnim(boolean needEnterAnim) {
-    mNeedEnterAnim = needEnterAnim;
-  }
-
-
-  public void resetAnimFlag() {
-    mNeedEnterAnim = false;
+  public PageTransaction getPageTransaction() {
+    return mPageTransaction;
   }
 
   @Override

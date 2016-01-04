@@ -30,7 +30,7 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 
 import com.liuxv.sliding.listener.SlidingListener;
-import com.liuxv.sliding.utils.SlidingUtils;
+import com.liuxv.sliding.utils.ViewDragHelper;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
@@ -1444,9 +1444,15 @@ public class SlidingLayout extends ViewGroup {
   }
 
   private boolean isViewUnder(View view, MotionEvent event) {
-    int location[] = new int[2];
-    SlidingUtils.getCoordinateInParent(view, event, location);
-    return mDragHelper.isViewUnder(view, location[0], location[1]);
+    Rect rect = new Rect();
+    view.getHitRect(rect);
+    View p = (View) view.getParent();
+    if (p != null) {
+      int parentGlobalPosition[] = new int[2];
+      p.getLocationOnScreen(parentGlobalPosition);
+      rect.offset(parentGlobalPosition[0], parentGlobalPosition[1]);
+    }
+    return rect.contains((int) event.getRawX(), (int) event.getRawY());
   }
 
   /**

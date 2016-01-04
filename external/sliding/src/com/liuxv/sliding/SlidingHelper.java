@@ -8,8 +8,6 @@ import com.liuxv.sliding.component.SlideActivity;
 import com.liuxv.sliding.listener.SlidingListener;
 import com.liuxv.sliding.utils.ActivityUtils;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Stack;
 
 /**
@@ -37,19 +35,20 @@ public class SlidingHelper {
   public static void onCreate(SlideActivity slideActivity) {
     if (slideActivity != null) {
       push(slideActivity);
-      if (slideActivity.getCanRelativeMove()) {
-        setEnterExitAnim(getPrePage(slideActivity));
-      }
+      setEnterExitAnim(slideActivity);
     }
   }
 
   public static void onWindowFocusChanged(SlideActivity slideActivity, boolean hasFocus) {
+    if (slideActivity == null) {
+      return;
+    }
     SlidingPager pager = getPrePage(slideActivity);
     if (pager == null) {
       return;
     }
     if (hasFocus) {
-      if (pager.isNeedEnterAnim()) {
+      if (pager.getPageTransaction().isAnimEnable()) {
         startEnterExitAnim(pager);
       }
     }
@@ -77,8 +76,9 @@ public class SlidingHelper {
     if (slideActivity == null) {
       return;
     }
-    if (slideActivity.getCanRelativeMove()) {
-      startCloseEnterAnim(getPrePage(slideActivity));
+    SlidingPager prePage = getPrePage(slideActivity);
+    if (prePage != null && prePage.getPageTransaction().isAnimEnable()) {
+      startCloseEnterAnim(prePage);
     }
   }
 
@@ -87,22 +87,44 @@ public class SlidingHelper {
    * 执行动画相关
    */
 
-  private static void setEnterExitAnim(SlidingPager pager) {
-    if (pager != null) {
-      pager.setNeedEnterAnim(true);
+  /**
+   * 设置前一页是否可以视察滚动
+   *
+   * @param slideActivity
+   */
+  private static void setEnterExitAnim(SlideActivity slideActivity) {
+    if (slideActivity == null) {
+      return;
+    }
+    SlidingPager prePage = getPrePage(slideActivity);
+    if (prePage != null) {
+      prePage.getPageTransaction().setAnimEnable(slideActivity.getCanRelativeMove());
     }
   }
 
   private static void startEnterExitAnim(SlidingPager pager) {
-    if (pager == null || pager.getSlidingLayout() == null || !pager.isNeedEnterAnim()) {
+    if (pager == null || pager.getSlidingLayout() == null) {
       return;
     }
-    pager.resetAnimFlag();
-    final SlidingLayout slidingLayout = pager.getSlidingLayout();
-    slidingLayout.postDelayed(new Runnable() {
+    PageTransaction pageTransaction = pager.getPageTransaction();
+
+    if (pageTransaction.isTransactionEnded()) {
+      pageTransaction.beginNewTransaction();
+    }
+
+    if (pageTransaction.isEnterAnimSchedule()) {
+      return;
+    }
+    pageTransaction.scheduleEnterAnimSchedule();
+
+    final SlidingPager finalPager = pager;
+    finalPager.getSlidingLayout().postDelayed(new Runnable() {
       @Override
       public void run() {
-        slidingLayout.slientSmoothSlideTo(CLOSE_PERCENT);
+        if (finalPager.getPageTransaction().needDoEnterAnim()) {
+          finalPager.getPageTransaction().doEnterAnim(finalPager.getSlidingLayout(), CLOSE_PERCENT);
+        }
+        finalPager.getPageTransaction().endEnterTransaction();
       }
     }, ENTER_EXIT_ANIM_DELAY);
   }
@@ -112,7 +134,10 @@ public class SlidingHelper {
     if (pager == null || pager.getSlidingLayout() == null) {
       return;
     }
-    pager.getSlidingLayout().slientSmoothSlideTo(ORIGIN_POSITION);
+    if (pager.getPageTransaction().needDoExitAnim()) {
+      pager.getPageTransaction().doExitAnim(pager.getSlidingLayout(), ORIGIN_POSITION);
+    }
+    pager.getPageTransaction().endExitTransaction();
   }
 
   /**
@@ -190,7 +215,7 @@ public class SlidingHelper {
       throw new IllegalArgumentException("it must be a activity to implements SlideActivity");
     }
     SlidingLayout mSlidingLayout =
-        (SlidingLayout) ((Activity) slideActivity).findViewById(R.id.sliding_pane_layout);
+            (SlidingLayout) ((Activity) slideActivity).findViewById(R.id.sliding_pane_layout);
     if (mSlidingLayout == null) {
       Log.w("SlidingHelper", "there is no sliding layout , this activity can not sliding");
       return null;
